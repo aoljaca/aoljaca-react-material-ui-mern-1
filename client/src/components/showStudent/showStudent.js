@@ -8,6 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
+import IconButton from '@material-ui/core/IconButton'
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles({
   table: {
@@ -51,7 +53,11 @@ export default function ShowStudents() {
                     <TableCell align="right">{student.regNo}</TableCell>
                     <TableCell align="right">{student.grade}</TableCell>
                     <TableCell align="right">{student.section}</TableCell>
-                    <TableCell align="right"></TableCell>
+                    <TableCell align="right">
+                        <IconButton aria-label="delete" disabled color="primary">
+                            <DeleteIcon />
+                        </IconButton>
+                    </TableCell>
                     </TableRow>
                 ))}
             </TableBody>
