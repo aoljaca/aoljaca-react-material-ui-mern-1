@@ -30,6 +30,12 @@ export default function ShowStudents() {
       })
   }, []);
 
+  const deleteStudent = (id) => {
+      axios.delete(`http://localhost:5001/students/${id}`).then(() => {
+          window.location.reload(false); 
+      })
+  }
+
   return (
     <>
         <h2>All Students</h2>
@@ -54,7 +60,7 @@ export default function ShowStudents() {
                     <TableCell align="right">{student.grade}</TableCell>
                     <TableCell align="right">{student.section}</TableCell>
                     <TableCell align="right">
-                        <IconButton aria-label="delete" disabled color="primary">
+                        <IconButton aria-label="delete" color="primary" onClick={() => deleteStudent(student._id)}>
                             <DeleteIcon />
                         </IconButton>
                     </TableCell>
